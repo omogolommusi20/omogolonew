@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/omogoloportfolio/browser",
+    "public": "dist\\omogoloassignment\\browser",
     "ignore": [
       "firebase.json",
       "**/.*",

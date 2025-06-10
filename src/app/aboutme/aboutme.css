@@ -1,5 +1,5 @@
-/* skills.css */
-.skills-container {
+/* aboutme.css */
+.about-me-container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
@@ -10,48 +10,35 @@
   color: #333;
 }
 
-.skills-container h2 {
+.about-me-container h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
   border-bottom: 2px solid #ddd;
   padding-bottom: 0.5rem;
 }
 
-.add-skill {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-input {
-  flex-grow: 1;
+textarea {
+  width: 100%;
   padding: 0.6rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  margin-bottom: 1rem;
   font-family: inherit;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 12px;
+.button-group {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1rem;
+  gap: 10px;
 }
 
 button {
   background-color: #4285f4;
   color: white;
   border: none;
-  padding: 0.4rem 1rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
   transition: background-color 0.2s;
 }
 

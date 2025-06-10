@@ -1,0 +1,16 @@
+<div class="about-me-container">
+  <h2>About Me</h2>
+  
+  <div *ngIf="!isEditing; else editMode">
+    <p>{{ aboutMeText || 'No information added yet.' }}</p>
+    <button (click)="toggleEdit()">Edit</button>
+  </div>
+
+  <ng-template #editMode>
+    <textarea [(ngModel)]="aboutMeText" rows="5"></textarea>
+    <div class="button-group">
+      <button (click)="saveAboutMe()">Save</button>
+      <button (click)="toggleEdit()">Cancel</button>
+    </div>
+  </ng-template>
+</div>

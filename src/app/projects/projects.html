@@ -1,1 +1,61 @@
-<p>projects works!</p>
+<div class="projects-container">
+  <h2>My Projects</h2>
+  
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading projects...</p>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <!-- Projects List -->
+  <div *ngIf="!isLoading" class="projects-content">
+    <!-- When projects exist -->
+    <div *ngIf="loadedProjects.length > 0; else noProjects">
+      <div class="project-card" *ngFor="let project of loadedProjects">
+        <div class="project-header">
+          <h3>{{ project.description }}</h3>
+          <span class="project-date" *ngIf="project.dateAdded">
+            {{ project.dateAdded | date:'mediumDate' }}
+          </span>
+        </div>
+        <div class="project-actions">
+          <button (click)="downloadFile(project.fileUrl, project.fileName)" 
+                  class="download-btn">
+            Download Project
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- When no projects exist -->
+    <ng-template #noProjects>
+      <div class="no-projects">
+        <p>No projects found in database.</p>
+        
+        <!-- Show cached projects if available -->
+        <div *ngIf="getStoredProjects().length > 0" class="cached-projects">
+          <h3>Previously Saved Projects</h3>
+          <div class="project-card" *ngFor="let project of getStoredProjects()">
+            <div class="project-header">
+              <h3>{{ project.description }}</h3>
+              <span class="project-date" *ngIf="project.dateAdded">
+                {{ project.dateAdded | date:'mediumDate' }}
+              </span>
+            </div>
+            <div class="project-actions">
+              <button (click)="downloadFile(project.fileUrl, project.fileName)" 
+                      class="download-btn">
+                Download Project
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
